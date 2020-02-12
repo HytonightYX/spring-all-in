@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>防抖与节流</title>
+  </head>
+  <body>
+    <div>
+      <span>普通输入框</span>
+      <input id="default" type="text" />
+    </div>
+
+    <div>
+      <span>防抖输入框</span>
+      <input id="debounce" type="text" />
+    </div>
+
+    <div>
+      <span>节流输入框</span>
+      <input id="throttle" type="text" />
+    </div>
+
+    <script>
+      // 模拟网络请求
+      const ajax = content => {
+        setTimeout(() => {
+          console.log("ajax request: " + content);
+        }, 20);
+      };
+
+      function debounce(fn, delay) {
+        return function(args) {
+          let that = this;
+        };
+      }
+
+      let defaultInput = document.getElementById("default");
+      let DebounceInput = document.getElementById("default");
+      let ThrottleInput = document.getElementById("default");
+
+      defaultInput.addEventListener("keyup", e => {
+        ajax(e.target.value);
+      });
+    </script>
+  </body>
+</html>
