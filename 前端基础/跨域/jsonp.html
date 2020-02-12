@@ -1,0 +1,38 @@
+<html>
+  <head>
+    <title>跨域测试</title>
+    <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+    <script>
+      function showData(data) {
+        console.info("调用showData");
+
+        var result = JSON.stringify(data);
+        $("#text").val(result);
+      }
+
+      $(document).ready(function() {
+        //window.showData = function  (data) {
+        //    console.info("调用showData");
+        //    var result = JSON.stringify(data);
+        //    $("#text").val(result);
+        //}
+
+        $("#btn").click(function() {
+          $.ajax({
+            url: "http://localhost:9090/student",
+            type: "GET",
+            dataType: "jsonp", //指定服务器返回的数据类型
+            jsonpCallback: "showData", //指定回调函数名称
+            success: function(data) {
+              console.info("调用success");
+            }
+          });
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <input id="btn" type="button" value="跨域获取数据" />
+    <textarea id="text" style="width: 400px; height: 100px;"></textarea>
+  </body>
+</html>
