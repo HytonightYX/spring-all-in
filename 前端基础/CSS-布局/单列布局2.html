@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>单列布局2</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        text-align: center;
+      }
+
+      body {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        min-height: 100vh;
+      }
+
+      .header {
+        margin: 0 auto;
+        height: 100px;
+        width: 100%;
+        background: #eeeeee;
+      }
+
+      .content {
+        margin: 20px auto;
+        width: 1000px;
+        /* height: calc(100vh - 250px); */
+        height: 1000px;
+        background: #00adb5;
+      }
+
+      .footer {
+        margin: 0 auto;
+        height: 100px;
+        width: 100%;
+        background: #393e46;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="header">HEADER</div>
+    <div class="content">CONTENT</div>
+    <div class="footer">FOOTER</div>
+  </body>
+</html>
