@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>两列自适应布局-float_overflow</title>
+    <style>
+      /* 通过overflow触发BFC,而BFC不会重叠浮动元素 */
+      .parent {
+        overflow: hidden;
+        zoom: 1; /* IE专属的属性 */
+      }
+
+      .left {
+        float: left;
+        margin-right: 20px;
+      }
+
+      .right {
+        overflow: hidden;
+        zoom: 1;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="parent" style="background-color: lightgrey;">
+      <div class="left" style="background-color: lightblue;">
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus
+          consequatur
+        </p>
+      </div>
+      <div class="right" style="background-color: lightgreen;">
+        <p>right</p>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus
+          quia, eius excepturi laboriosam perferendis dolore quisquam nihil.
+          Beatae distinctio molestias officiis ex. Alias dolore aperiam
+          aspernatur error, reprehenderit quos? Nihil.
+        </p>
+      </div>
+    </div>
+  </body>
+</html>
