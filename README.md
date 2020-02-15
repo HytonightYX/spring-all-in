@@ -23,10 +23,10 @@
 | 15   | [ 跳台阶](https://www.nowcoder.com/practice/8c82a5b80378478f9484d87d1c5f12a4?tpId=13&tqId=11161&tPage=1&rp=1&ru=/ta/coding-interviews&qru=/ta/coding-interviews/question-ranking) | 递归 动态规划    |
 | 16   | [ 变态跳台阶](https://www.nowcoder.com/practice/22243d016f6b47f2a6928b4313c85387?tpId=13&tqId=11162&tPage=1&rp=1&ru=/ta/coding-interviews&qru=/ta/coding-interviews/question-ranking) | 规律 组合数      |
 | 17   | [ 矩形覆盖](https://www.nowcoder.com/practice/72a5a919508a4251859fb2cfb987a0e6?tpId=13&tqId=11163&tPage=1&rp=1&ru=/ta/coding-interviews&qru=/ta/coding-interviews/question-ranking) | 规律 斐波那契    |
-|      |                                                              |                  |
-|      |                                                              |                  |
-|      |                                                              |                  |
-|      |                                                              |                  |
+| 18   | [ 二进制中1的个数](https://www.nowcoder.com/practice/8ee967e43c2c4ec193b040ea7fbb10b8?tpId=13&tqId=11164&tPage=1&rp=1&ru=/ta/coding-interviews&qru=/ta/coding-interviews/question-ranking) | 位运算           |
+|      | [ 数值的整数次方](https://www.nowcoder.com/practice/1a834e5e3e1a4b7ba251417554e07c00?tpId=13&tqId=11165&tPage=1&rp=1&ru=/ta/coding-interviews&qru=/ta/coding-interviews/question-ranking) |                  |
+|      | [ 调整数组顺序使奇数位于偶数前面](https://www.nowcoder.com/practice/beb5aa231adc45b2a5dcc5b62c93f593?tpId=13&tqId=11166&tPage=1&rp=1&ru=/ta/coding-interviews&qru=/ta/coding-interviews/question-ranking) |                  |
+|      | [ 树的子结构](https://www.nowcoder.com/practice/6e196c44c7004d15b1610b9afca8bd88?tpId=13&tqId=11170&tPage=1&rp=1&ru=/ta/coding-interviews&qru=/ta/coding-interviews/question-ranking) |                  |
 |      |                                                              |                  |
 |      |                                                              |                  |
 |      |                                                              |                  |
@@ -84,8 +84,6 @@
 |     |                                                                                |             |
 |     |                                                                                |             |
 
-
-
 ## 前端基础
 
 ### JavaScript
@@ -100,7 +98,15 @@
 
 ### React
 
+
+
 #### Fiber
 
 [Lin Clark presentation in ReactConf 2017](https://www.youtube.com/watch?v=ZCuYPiUIONs)
 https://juejin.im/post/5ab7b3a2f265da2378403e57
+
+
+
+## CS 基础
+
+[原码, 反码, 补码 详解](https://www.cnblogs.com/zhangziqiu/archive/2011/03/30/ComputerCode.html)
