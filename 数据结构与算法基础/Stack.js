@@ -48,3 +48,5 @@ class Stack {
     this.container = []
   }
 }
+
+export default Stack
