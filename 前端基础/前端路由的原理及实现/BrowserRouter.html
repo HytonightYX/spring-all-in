@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      nav {
+        height: 64px;
+        background-color: #eee;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="root">
+      <nav>
+        <ul>
+          <li><a data-href="/" href="#">home</a></li>
+          <li><a data-href="/about" href="#">about</a></li>
+          <li><a data-href="/topics" href="#">topics</a></li>
+        </ul>
+      </nav>
+      <main id="main">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem maiores
+        numquam id dolores ullam facilis recusandae minima inventore sequi,
+        totam quisquam facere possimus distinctio quis illo ad repellendus!
+        Alias, repudiandae.
+      </main>
+    </div>
+    <script>
+      class BrowserRouter {
+        constructor() {
+          this.routes = {};
+          this.currentUrl = "";
+        }
+
+        // 手动挂路由
+        route(path, callback) {
+          this.routes[path] = callback || (() => {});
+        }
+
+        // 更改UI
+        updateView(url) {
+          this.currentUrl = url;
+          this.routes[url] && this.routes[url]();
+        }
+
+        // 首先需要获取所有特殊的链接标签，然后监听点击事件，
+        // 并阻止其默认事件，触发 history.pushState 以及
+        // 更新相应的视图。
+        bindLink() {
+          const allLink = document.querySelectorAll("a[data-href]");
+          const len = allLink.length;
+          for (let i = 0; i < len; i++) {
+            const current = allLink[i];
+            current.addEventListener(
+              "click",
+              e => {
+                e.preventDefault();
+                const url = current.getAttribute("data-href");
+                history.pushState({}, null, url);
+                this.updateView(url);
+              },
+              false
+            );
+          }
+        }
+
+        // 添加监听器
+        init() {
+          this.bindLink();
+          // 绑定 popstate 事件，当用户点击前进或者后退的按钮时候，能够及时更新视图
+          window.addEventListener("popstate", e => {
+            this.updateView(window.location.pathname);
+          });
+          // 刚进去页面时也要触发一次视图更新
+          window.addEventListener("load", () => this.updateView("/"), false);
+        }
+      }
+
+      const router = new BrowserRouter();
+      router.init();
+      router.route("/", function() {
+        document.getElementById("main").innerHTML = "Home";
+      });
+      router.route("/about", function() {
+        document.getElementById("main").innerHTML = "About";
+      });
+      router.route("/topics", function() {
+        document.getElementById("main").innerHTML = "Topics";
+      });
+    </script>
+  </body>
+</html>

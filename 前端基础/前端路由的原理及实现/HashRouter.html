@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      nav {
+        height: 64px;
+        background-color: #eee;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="root">
+      <nav>
+        <ul>
+          <li>
+            <a href="#">home</a>
+          </li>
+          <li>
+            <a href="#/about">about</a>
+          </li>
+          <li>
+            <a href="#/topics">topics</a>
+          </li>
+        </ul>
+      </nav>
+      <main id="main">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem maiores
+        numquam id dolores ullam facilis recusandae minima inventore sequi,
+        totam quisquam facere possimus distinctio quis illo ad repellendus!
+        Alias, repudiandae.
+      </main>
+    </div>
+    <script>
+      class Router {
+        constructor() {
+          // routes 用来存放不同路由对应的回调函数
+          this.routes = {};
+          this.currentUrl = "";
+        }
+
+        route(path, classback) {
+          this.routes[path] = classback || (() => {});
+        }
+
+        updateView() {
+          this.currentUrl = location.hash.slice(1) || "/";
+          this.routes[this.currentUrl] && this.routes[this.currentUrl]();
+        }
+
+        // init 用来初始化路由，在 load 事件发生后刷新页面，
+        // 并且绑定 hashchange 事件，当 hash 值改变时触发对应回调函数
+        init() {
+          window.addEventListener("load", this.updateView.bind(this), false);
+          window.addEventListener(
+            "hashchange",
+            this.updateView.bind(this),
+            false
+          );
+        }
+      }
+      const router = new Router();
+      router.init();
+      router.route("/", () => {
+        document.getElementById("main").innerHTML = "this is home";
+      });
+
+      router.route("/about", () => {
+        document.getElementById("main").innerHTML = "this is about";
+      });
+
+      router.route("/topics", () => {
+        document.getElementById("main").innerHTML = "this is topics";
+      });
+    </script>
+  </body>
+</html>
